@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.javaguiproject.MessController"
+            prefHeight="540" prefWidth="360">
+    <center>
+        <GridPane>
+            <rowConstraints>
+                <RowConstraints percentHeight="10"/>
+                <RowConstraints percentHeight="80"/>
+                <RowConstraints percentHeight="10"/>
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="100"/>
+            </columnConstraints>
+
+            <GridPane>
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="40"/>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="15"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints percentHeight="100"/>
+                </rowConstraints>
+                <Button GridPane.columnIndex="0" GridPane.rowIndex="0"
+                        style="-fx-background-color: transparent">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@icon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+                <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0"
+                          alignment="CENTER_LEFT">
+                    <rowConstraints>
+                        <RowConstraints percentHeight="10"/>
+                        <RowConstraints percentHeight="40"/>
+                        <RowConstraints percentHeight="40"/>
+                        <RowConstraints percentHeight="10"/>
+                    </rowConstraints>
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="100"/>
+                    </columnConstraints>
+                    <Label text="MAN" GridPane.columnIndex="0" GridPane.rowIndex="1"
+                           style="-fx-font-weight: bold">
+
+                    </Label>
+                    <Label text="Active" GridPane.columnIndex="0" GridPane.rowIndex="2">
+
+                    </Label>
+                </GridPane>
+
+                <Button GridPane.columnIndex="2" GridPane.rowIndex="0"
+                        style="-fx-background-color: transparent">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@call.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button GridPane.columnIndex="3" GridPane.rowIndex="0"
+                        style="-fx-background-color: transparent">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@video.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button GridPane.columnIndex="4" GridPane.rowIndex="0"
+                        style="-fx-background-color: transparent">
+                    <graphic>
+                        <ImageView>
+                            <Image url="@info.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </GridPane>
+
+            <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <top>
+                    <GridPane>
+                        <rowConstraints>
+                            <RowConstraints percentHeight="100"/>
+                        </rowConstraints>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="95"/>
+                            <ColumnConstraints percentWidth="5"/>
+                        </columnConstraints>
+                        <GridPane fx:id="grid" GridPane.columnIndex="0" GridPane.rowIndex="0">
+
+                        </GridPane>
+                    </GridPane>
+                </top>
+                <center>
+                    <ScrollPane>
+                        <VBox fx:id="vbox" alignment="CENTER" spacing="10">
+                            <GridPane prefWidth="${grid.width}">
+                                <rowConstraints>
+                                    <RowConstraints percentHeight="100"/>
+                                </rowConstraints>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="60"/>
+                                    <ColumnConstraints percentWidth="40"/>
+                                </columnConstraints>
+                                <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="LEFT"
+                                            style=" -fx-background-color: #FFB6C1; -fx-background-radius: 0 10 10 10">
+                                    <center>
+                                        <Label text="You are a chicken :>>>" style="-fx-padding: 10;">
+
+                                        </Label>
+                                    </center>
+                                </BorderPane>
+
+                            </GridPane>
+                            <GridPane prefWidth="${grid.width}">
+                                <rowConstraints>
+                                    <RowConstraints percentHeight="100"/>
+                                </rowConstraints>
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="40"/>
+                                    <ColumnConstraints percentWidth="60"/>
+                                </columnConstraints>
+                                <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="RIGHT"
+                                            style=" -fx-background-color: #ADD8E6; -fx-background-radius: 10 0 10 10">
+                                    <center>
+                                        <Label text="You are a chicken too :>>>" style="-fx-padding: 10;">
+
+                                        </Label>
+                                    </center>
+                                </BorderPane>
+
+                            </GridPane>
+                        </VBox>
+                    </ScrollPane>
+                </center>
+            </BorderPane>
+
+            <BorderPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <center>
+                    <GridPane>
+                        <rowConstraints>
+                            <RowConstraints percentHeight="100"/>
+                        </rowConstraints>
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="13"/>
+                            <ColumnConstraints percentWidth="74"/>
+                            <ColumnConstraints percentWidth="13"/>
+                        </columnConstraints>
+                        <Button style="-fx-background-color: transparent">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@plus.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <TextField promptText="Aa" fx:id="text" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="0" onKeyTyped="#setButton" style="-fx-background-radius: 10">
+
+                        </TextField>
+                        <Button fx:id="send" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                                style="-fx-background-color: transparent" onMouseClicked="#sendWord">
+                            <graphic>
+                                <ImageView>
+                                    <Image url="@like.png"/>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </GridPane>
+                </center>
+            </BorderPane>
+        </GridPane>
+    </center>
+</BorderPane>
