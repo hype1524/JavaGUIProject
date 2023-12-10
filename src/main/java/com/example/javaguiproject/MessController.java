@@ -61,7 +61,6 @@ public class MessController {
             gridPane.getChildren().add(borderPane);
 
             vbox.getChildren().add(gridPane);
-            text.setText(null);
         } else {
             GridPane gridPane = new GridPane();
             gridPane.setPrefWidth(grid.getPrefWidth());
@@ -90,7 +89,7 @@ public class MessController {
             gridPane.getChildren().add(borderPane);
 
             vbox.getChildren().add(gridPane);
-            text.setText(null);
+            text.setText("");
             Image image = new Image(Objects.requireNonNull(getClass()
                     .getResourceAsStream("like.png")));
             ImageView imageView = new ImageView(image);
