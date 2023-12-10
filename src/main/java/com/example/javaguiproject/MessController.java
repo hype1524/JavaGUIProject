@@ -5,13 +5,11 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.util.Objects;
 
@@ -31,17 +29,74 @@ public class MessController {
     }
     @FXML
     public void sendWord() {
+        if (text.getText().isEmpty()) {
+            GridPane gridPane = new GridPane();
+            gridPane.setPrefWidth(grid.getPrefWidth());
 
+            RowConstraints rowConstraints = new RowConstraints();
+            rowConstraints.setPercentHeight(100);
+            gridPane.getRowConstraints().add(rowConstraints);
+
+            ColumnConstraints column1 = new ColumnConstraints();
+            column1.setPercentWidth(40);
+            ColumnConstraints column2 = new ColumnConstraints();
+            column2.setPercentWidth(60);
+            gridPane.getColumnConstraints().addAll(column1, column2);
+
+            BorderPane borderPane = new BorderPane();
+            borderPane.setStyle("-fx-background-color: #FFB6C1; -fx-background-radius: 0 10 10 10");
+
+            GridPane.setColumnIndex(borderPane, 0);
+            GridPane.setRowIndex(borderPane, 0);
+            GridPane.setHalignment(borderPane, HPos.LEFT);
+
+            Label label = new Label(text.getText());
+            label.setStyle("-fx-padding: 10;");
+            borderPane.setCenter(label);
+            gridPane.getChildren().add(borderPane);
+
+            vbox.getChildren().add(gridPane);
+        } else {
+            GridPane gridPane = new GridPane();
+            gridPane.setPrefWidth(grid.getPrefWidth());
+
+            RowConstraints rowConstraints = new RowConstraints();
+            rowConstraints.setPercentHeight(100);
+            gridPane.getRowConstraints().add(rowConstraints);
+
+            ColumnConstraints column1 = new ColumnConstraints();
+            column1.setPercentWidth(60);
+            ColumnConstraints column2 = new ColumnConstraints();
+            column2.setPercentWidth(40);
+            gridPane.getColumnConstraints().addAll(column1, column2);
+
+            BorderPane borderPane = new BorderPane();
+            borderPane.setStyle("-fx-background-color: #ADD8E6; -fx-background-radius: 10 0 10 10");
+
+            GridPane.setColumnIndex(borderPane, 1);
+            GridPane.setRowIndex(borderPane, 0);
+            GridPane.setHalignment(borderPane, HPos.RIGHT);
+
+            Label label = new Label(text.getText());
+            label.setStyle("-fx-padding: 10;");
+            borderPane.setCenter(label);
+            gridPane.getChildren().add(borderPane);
+
+            vbox.getChildren().add(gridPane);
+            text.setText(null);
+        }
     }
 
     @FXML
     public void setButton() {
         if (text.getText().isEmpty()) {
-            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("like.png")));
+            Image image = new Image(Objects.requireNonNull(getClass()
+                    .getResourceAsStream("like.png")));
             ImageView imageView = new ImageView(image);
             send.setGraphic(imageView);
         } else {
-            Image image = new Image(Objects.requireNonNull(getClass().getResourceAsStream("send.png")));
+            Image image = new Image(Objects.requireNonNull(getClass()
+                    .getResourceAsStream("send.png")));
             ImageView imageView = new ImageView(image);
             send.setGraphic(imageView);
         }
